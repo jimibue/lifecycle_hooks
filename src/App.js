@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Button, Container, Divider } from "semantic-ui-react";
+import Clock from "./Clock";
+import CounterReducer from "./CounterReducer";
+import Data from "./Data";
+import DVDMove from "./DVDMove";
+import TodolList from "./TodoList";
+import UseEffectDemo from "./UseEffectDemo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = { showClock: false, count: 0 };
+  toggleClock = () => {
+    this.setState({
+      showClock: !this.state.showClock,
+    });
+  };
+  render() {
+    return (
+      <Container>
+        <Divider />
+        <TodolList />
+        {/* <CounterReducer /> */}
+        {/* <UseEffectDemo /> */}
+        {/* <Divider />
+        {this.state.showClock && <Clock />}
+        <Button onClick={this.toggleClock} color="pink">
+          Toggle Clock
+        </Button>
+        <Data />
+        <Divider />
+        <DVDMove /> */}
+      </Container>
+    );
+  }
 }
 
 export default App;
